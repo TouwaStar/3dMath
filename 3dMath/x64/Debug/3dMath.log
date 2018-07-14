@@ -1,0 +1,4 @@
+﻿  3dMath.cpp
+c:\users\mateusz\documents\visual studio 2017\3dmath\3dmath\base\core.h(4): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mateusz\documents\visual studio 2017\3dmath\3dmath\3dmath.cpp(51): warning C4305: 'argument': truncation from 'double' to 'const float'
+  3dMath.vcxproj -> C:\Users\Mateusz\Documents\Visual Studio 2017\3DMath\x64\Debug\3dMath.exe

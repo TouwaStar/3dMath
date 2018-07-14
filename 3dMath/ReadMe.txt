@@ -1,0 +1,1 @@
+This is a learning project set to be a header only implementation of math/geometry important for 3d graphics.
