@@ -9,7 +9,6 @@ namespace math3d {
 #include "point.h"
 #include "transform.h"
 #include "ray.h"
-#include "..\Shapes\shape.h"
-#include "..\Shapes\sphere.h"
+#include "bounds.h"
 
 }

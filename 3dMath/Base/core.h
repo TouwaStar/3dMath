@@ -7,6 +7,12 @@ template <typename T>
 inline T Max(){
 	return std::numeric_limits<T>::max();
 }
+
+template <typename T>
+inline T Min() {
+	return std::numeric_limits<T>::lowest();
+}
+
 template <typename T>
 inline T Infinity() {
 	return std::numeric_limits<T>::infinity();

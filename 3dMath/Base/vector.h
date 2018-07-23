@@ -1,5 +1,6 @@
 #pragma once
-#include <iosfwd>
+#include <iosfwd> 
+
 template <typename T>
 class Vector4;
 template <typename T>
@@ -42,6 +43,7 @@ public:
 
 	template <typename V>
 	inline Vector2<T> operator / (const V a) const {
+		assert(a != 0);
 		float inv = (float)1 / a;
 		return Vector2(x * inv, y * inv);
 	}
@@ -73,6 +75,7 @@ public:
 	}
 	template <typename V>
 	inline Vector2<T>& operator /= (const V a) {
+		assert(a != 0);
 		float inv = (float)1 / a;
 		x *= a;
 		y *= a;
@@ -111,13 +114,13 @@ class Vector3 {
 private:
 	T x, y, z;
 public:
-	//bool CheckForNaNs() const { return std::isnan(x) || std::isnan(y) || std::isnan(z); }
+	bool CheckForNaNs() const { return std::isnan(x) || std::isnan(y) || std::isnan(z); }
 
 	inline Vector3() { x = 0; y = 0; z = 0; }
 	
 	inline Vector3(const T a, const T b, const T c) {
 		x = a; y = b; z = c; 
-		//assert(!CheckForNaNs());
+		assert(!CheckForNaNs());
 	}
 
 	inline Vector3 (const Vector3<T> & vec) 
@@ -142,7 +145,8 @@ public:
 	{ return Vector3(x*vec.x, y*vec.y, z*vec.z);}
 
 	inline Vector3<T> operator / (const T a) const{
-		float inv = (float)1 / a;
+		assert(a != 0);
+		float inv = (float) 1 / a;
 		return Vector3(x * inv, y * inv, z * inv);
 	}
 
@@ -176,6 +180,7 @@ public:
 	}
 	template <typename V>
 	inline Vector3<T>& operator /= (const V a){
+		assert(a != 0);
 		float inv = (float)1 / a;
 		x *= a;
 		y *= a;
@@ -221,7 +226,7 @@ public:
 
 	inline T getMinComponent()
 	{
-		return math3d::min(this->getX(), math3d::min(this->getY(), this->getZ()));
+		return min(this->getX(), min(this->getY(), this->getZ()));
 	}
 	
 	inline void cross(const Vector3<T>& vec) {
@@ -293,6 +298,7 @@ public:
 	template <typename V>
 	inline Vector4<T> operator / (const V a) const
 	{
+		assert(a != 0);
 		float inv = (float)1 / a;
 		return Vector4(x * a, y * a, z * a, w * a);
 	}
@@ -354,6 +360,7 @@ public:
 	}
 	template <typename V>
 	inline Vector4<T>& operator /= (const V a) {
+		assert(a != 0);
 		float inv = (float)1 / a;
 		x *= a;
 		y *= a;
@@ -520,13 +527,13 @@ namespace vector {
 	template <typename T>
 	inline T AbsDot(const Vector3<T> &vec1, const Vector3<T> &vec2)
 	{
-		return std::abs(math3d::Dot(vec1, vec2));
+		return std::abs(Dot(vec1, vec2));
 	}
 
 	template <typename T>
 	inline T AbsDot(const Vector4<T> &vec1, const Vector4<T> &vec2)
 	{
-		return std::abs(math3d::Dot(vec1, vec2));
+		return std::abs(Dot(vec1, vec2));
 	}
 
 	template <typename T>
@@ -543,7 +550,7 @@ namespace vector {
 
 }
 	template <typename T>
-	Vector3<T>::operator Vector4<T>() {
+	inline Vector3<T>::operator Vector4<T>() {
 		return Vector4<T>(x, y, z);
 	}
 
@@ -555,3 +562,5 @@ typedef Vector4<float> Vector4f;
 typedef Vector4<int> Vector4i;
 typedef Vector2<float> Vector2f;
 typedef Vector2<int> Vector2i;
+
+

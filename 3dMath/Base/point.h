@@ -16,6 +16,16 @@ public:
 		assert(!CheckForNaNs());
 	};
 
+	inline T getX() {
+		return x;
+	}
+	inline T getY() {
+		return y;
+	}
+	inline T getZ() {
+		return z;
+	}
+
 	Point2<T> operator +( Vector2<T> &vec) const
 	{ return Point2<T>(x + vec.getX(), y + vec.getY());};
 
@@ -62,6 +72,16 @@ public:
 		x = a; y = b; z = c;
 		assert(!CheckForNaNs());
 	};
+
+	inline T getX() {
+		return x;
+	}
+	inline T getY() {
+		return y;
+	}
+	inline T getZ() {
+		return z;
+	}
 
 	Point3<T> operator +(Vector3<T> &vec) const 
 	{ return Point3<T>(x + vec.getX(), y + vec.getY(), z + vec.getZ());};

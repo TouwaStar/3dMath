@@ -4,12 +4,6 @@
     <ClCompile Include="3dMath.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shapes\sphere.h">
-      <Filter>Shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="Shapes\shape.h">
-      <Filter>Shapes</Filter>
-    </ClInclude>
     <ClInclude Include="Base\point.h">
       <Filter>Base</Filter>
     </ClInclude>
@@ -31,7 +25,10 @@
     <ClInclude Include="Base\transform.h">
       <Filter>Base</Filter>
     </ClInclude>
-    <ClInclude Include="ray.h">
+    <ClInclude Include="Base\bounds.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RayTracer\3DMath\3dMath\Base\ray.h">
       <Filter>Base</Filter>
     </ClInclude>
   </ItemGroup>
@@ -39,9 +36,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Shapes">
-      <UniqueIdentifier>{b94082fe-b8d9-497d-af32-5c42b02003dc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Base">
       <UniqueIdentifier>{c4badd62-a01d-4fba-82e6-c65043dc93f9}</UniqueIdentifier>
     </Filter>

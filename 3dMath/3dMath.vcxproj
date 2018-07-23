@@ -143,6 +143,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\RayTracer\3DMath\3dMath\Base\ray.h" />
+    <ClInclude Include="Base\bounds.h" />
     <ClInclude Include="Base\core.h" />
     <ClInclude Include="Base\math3d.h" />
     <ClInclude Include="Base\matrix.h" />
@@ -150,9 +152,6 @@
     <ClInclude Include="Base\quaternion.h" />
     <ClInclude Include="Base\transform.h" />
     <ClInclude Include="Base\vector.h" />
-    <ClInclude Include="ray.h" />
-    <ClInclude Include="Shapes\shape.h" />
-    <ClInclude Include="Shapes\sphere.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="3dMath.cpp">

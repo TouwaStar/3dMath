@@ -1,5 +1,6 @@
 #pragma once
 #include <iosfwd>
+
 	template<typename T>
 	class Ray {
 	public:

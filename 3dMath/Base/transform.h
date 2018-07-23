@@ -1,5 +1,6 @@
 #pragma once
 #include <iosfwd>
+
 template <typename T>
 class Transform {
 private:
@@ -27,13 +28,13 @@ public:
 		Vector4<T> el = matrix.getVectors();
 		return Vector3<T>(vector::Dot(el[0], v), vector::Dot(el[0], v), vector::Dot(el[0], v));
 	};
-	/* Test if a transformation has a scaling term in it*//*
+	/* Test if a transformation has a scaling term in it*/
 	bool IsScaled() const {
 		T a = (*this)(Vector3<T>(1, 0, 0)).getLenSquared();
 		T b = (*this)(Vector3<T>(0, 1, 0)).getLenSquared();
 		T c = (*this)(Vector3<T>(0, 0, 1)).getLenSquared();
 		return core::NotOne(a) || core::NotOne(b) || core::NotOne(c);
-	}*/
+	}
 };
 
 namespace transform {
@@ -41,10 +42,12 @@ namespace transform {
 	inline Transform<T> Inverse(const Transform<T> &a) {
 		return Transform(a.getInverse(), a.getMatrix());
 	}
+
 	template <typename T> 
 	inline Transform<T> Transpose(const Transform<T> &a) {
 		return Transform(matrix::Transpose(a.getMatrix()), matrix::Transpose(a.getInverse()));
 	}
+
 	template <typename T>
 	inline Transform<T> Translate(const Vector3<T> &del) {
 		return Transform((1, 0, 0, del.getX(),
@@ -56,6 +59,7 @@ namespace transform {
 						 0, 0, 1, -del.getZ(),
 						 0, 0, 0, 1);)
 	}
+
 	template <typename T>
 	inline Transform<T> Scale(T x, T y, T z) {
 		return Transform((x, 0, 0, 0,
@@ -67,6 +71,7 @@ namespace transform {
 						 0, 0, 1/z, 0,
 						 0, 0, 0, 1);)
 	}
+
 	template <typename T>
 	inline Transform<T> RotateX(T theta) {
 		T sinTheta = std::sin(core::Radians(theta));
@@ -77,6 +82,7 @@ namespace transform {
 						  0, 0, 0, 1);
 		return Transform(matrix, Transpose(matrix));
 	}; 
+
 	template <typename T>
 	inline Transform<T> RotateY(T theta) {
 		T sinTheta = std::sin(core::Radians(theta));
@@ -87,6 +93,7 @@ namespace transform {
 						  0, 0, 0, 1);
 		return Transform(matrix, Transpose(matrix));
 	};
+
 	template <typename T>
 	inline Transform<T> RotateZ(T theta) {
 		T sinTheta = std::sin(core::Radians(theta));
@@ -97,6 +104,7 @@ namespace transform {
 						  0, 0, 0, 1);
 		return Transform(matrix, Transpose(matrix));
 	};
+
 	template <typename T>
 	Transform<T> Rotate(T theta, const Vector3<T> &axis) {
 		T sinTheta = std::sin(core::Radians(theta));

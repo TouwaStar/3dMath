@@ -16,6 +16,9 @@ int main()
 	Transform<float> transform1;
 	Ray<float> ray(Point2,test2);
 	RayDifferential<float> rayDiff(Point1, test);
+	Bounds3f();
+	Bounds3<float>(Point1, Point2);
+	Bounds3<float>(Point3<float>(3,5,6));
 	
 	//Sample use and syntax
 
